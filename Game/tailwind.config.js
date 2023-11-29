@@ -1,9 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      margin: {
+        26: "6.75rem",
+      },
+      top: {
+        26: "10rem",
+      },
+    },
   },
   plugins: [],
-}
-
+};
