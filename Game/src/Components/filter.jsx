@@ -22,17 +22,18 @@ const Filter = ({ textSearch }) => {
 
     const fetchData = async () => {
       try {
-        let response;
+        let url;
         if (textSearch !== "") {
-          response = await fetch(
-            `https://restcountries.com/v3.1/name/${searchTerm}`
-          );
+          url = `https://restcountries.com/v3.1/name/${textSearch}`;
         } else {
-          response = await fetch("https://restcountries.com/v3.1/all");
+          url = "https://restcountries.com/v3.1/all";
         }
+        const response = await fetch(url);
+
         if (!response.ok) {
           throw new Error("Network response was not ok.");
         }
+
         const data = await response.json();
         setCountries(data.slice(0, 8));
       } catch (error) {
@@ -40,9 +41,7 @@ const Filter = ({ textSearch }) => {
       }
     };
 
-    if (searchTerm) {
-      fetchData();
-    }
+    fetchData(); // Always fetch data on initial render regardless of searchTerm
   }, [textSearch]);
   return (
     <div>
