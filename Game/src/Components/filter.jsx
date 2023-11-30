@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-const Filter = () => {
+
+const Filter = ({ textSearch }) => {
   const [selectedFilter, setSelectedFilter] = useState("");
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,12 +16,20 @@ const Filter = () => {
   const filteredOptions = initialFilterOptions.filter(
     (option) => option !== "Filter by region"
   );
-
   useEffect(() => {
     setSelectedFilter("Filter by region");
+    setSearchTerm(textSearch); // Update searchTerm with textSearch prop
+
     const fetchData = async () => {
       try {
-        const response = await fetch("https://restcountries.com/v3.1/all");
+        let response;
+        if (textSearch !== "") {
+          response = await fetch(
+            `https://restcountries.com/v3.1/name/${searchTerm}`
+          );
+        } else {
+          response = await fetch("https://restcountries.com/v3.1/all");
+        }
         if (!response.ok) {
           throw new Error("Network response was not ok.");
         }
@@ -31,11 +40,10 @@ const Filter = () => {
       }
     };
 
-    fetchData();
-  }, []);
-  const handleSearchTermChange = (searchTerm) => {
-    console.log(searchTerm);
-  };
+    if (searchTerm) {
+      fetchData();
+    }
+  }, [textSearch]);
   return (
     <div>
       <select

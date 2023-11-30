@@ -4,11 +4,15 @@ import SearchBar from "./Components/SearchBar";
 import Filter from "./Components/filter";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearchTermChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <>
       <Nav />
-      <SearchBar />
-      <Filter />
+      <SearchBar handleSearchTermChange={handleSearchTermChange} />
+      <Filter textSearch={searchTerm} />
     </>
   );
 }
