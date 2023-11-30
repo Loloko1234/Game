@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
+import filter from "./filter";
+
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
-    // Perform search logic here
+    console.log(event.target.value);
   };
 
   return (
@@ -23,5 +25,4 @@ const SearchBar = () => {
     </div>
   );
 };
-
 export default SearchBar;
