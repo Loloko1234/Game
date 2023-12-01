@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Nav />
         <Routes>
-          <Route path="/" element={<Main />} /> {/* Added this line */}
+          <Route path="/" element={<Main />} />
           <Route path="/main" element={<Main />} />
           <Route path="/sub" element={<Sub />} />
         </Routes>
