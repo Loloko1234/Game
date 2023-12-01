@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const Filter = ({ textSearch }) => {
   const [selectedFilter, setSelectedFilter] = useState("");
   const [countries, setCountries] = useState([]);
@@ -18,7 +18,7 @@ const Filter = ({ textSearch }) => {
   );
   useEffect(() => {
     setSelectedFilter("Filter by region");
-    setSearchTerm(textSearch); // Update searchTerm with textSearch prop
+    setSearchTerm(textSearch);
 
     const fetchData = async () => {
       try {
@@ -59,7 +59,12 @@ const Filter = ({ textSearch }) => {
           </option>
         ))}
       </select>
-      <div className="mr-8 lg:mr-20 lg:ml-20 ml-8 flex flex-wrap gap-20 justify-center mt-9 rounded-md mb-16">
+
+      <Link
+        to="/sub"
+        href="google.com"
+        className="mr-8 lg:mr-20 lg:ml-20 ml-8 flex flex-wrap gap-20 justify-center mt-9 rounded-md mb-16"
+      >
         {countries.map((country, index) => (
           <div
             key={index}
@@ -90,7 +95,7 @@ const Filter = ({ textSearch }) => {
             </div>
           </div>
         ))}
-      </div>
+      </Link>
     </div>
   );
 };
