@@ -7,14 +7,18 @@ import { Sub } from "./pages/Sub/Sub";
 import Main from "./pages/Main/main";
 
 function App() {
+  const [clickedLink, setClickedLink] = useState(null);
   return (
     <>
       <Router>
         <Nav />
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/main" element={<Main />} />
-          <Route path="/sub" element={<Sub />} />
+          <Route path="/" element={<Main setClickedLink={setClickedLink} />} />
+          <Route
+            path="/main"
+            element={<Main setClickedLink={setClickedLink} />}
+          />
+          <Route path="/sub" element={<Sub clickedLink={clickedLink} />} />
         </Routes>
       </Router>
     </>

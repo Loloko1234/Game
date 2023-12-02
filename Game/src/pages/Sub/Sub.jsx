@@ -1,5 +1,12 @@
 import React from "react";
+import ButtonBack from "../../Components/buttonBack";
+import SubFlag from "../../Components/subFlag";
 
-export const Sub = () => {
-  return <div>Sub</div>;
+export const Sub = ({ clickedLink }) => {
+  return (
+    <>
+      <ButtonBack />
+      <SubFlag clickedLink={clickedLink} />
+    </>
+  );
 };
