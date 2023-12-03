@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-const Filter = ({ textSearch, setClickedLink }) => {
+const Filter = ({ textSearch, setClickedLink, isDarkMode }) => {
   const [selectedFilter, setSelectedFilter] = useState("");
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -44,9 +44,15 @@ const Filter = ({ textSearch, setClickedLink }) => {
     fetchData();
   }, [textSearch]);
   return (
-    <div>
+    <div
+      className={`${
+        isDarkMode ? "bg-custom-color2 text-white" : "bg-custom-color3"
+      }`}
+    >
       <select
-        className="w-1/2 h-16 rounded-md text-xl px-6 shadow-lg ml-8 mt-8 appearance-none focus:outline-none lg:w-1/6 lg:ml-20 lg:mt-9 lg:mb-6"
+        className={`w-1/2 h-16 rounded-md text-xl px-6 shadow-lg ml-8 mt-8 appearance-none focus:outline-none lg:w-1/6 lg:ml-20 lg:mt-9 lg:mb-6 ${
+          isDarkMode ? "bg-custom-color text-white" : "bg-white"
+        }`}
         value={selectedFilter}
         onChange={(e) => setSelectedFilter(e.target.value)}
       >
@@ -62,13 +68,15 @@ const Filter = ({ textSearch, setClickedLink }) => {
 
       <Link
         to="/sub"
-        className="mr-8 lg:mr-20 lg:ml-20 ml-8 flex flex-wrap gap-20 justify-center mt-9 rounded-md mb-16"
+        className="mr-8 lg:mr-20 lg:ml-20 ml-8 flex flex-wrap gap-20 justify-center mt-9 rounded-md mb-16  "
       >
         {countries.map((country, index) => (
           <div
             onClick={() => setClickedLink(country.name.common)}
             key={index}
-            className="essa shadow-xl sm:w-[450px] sm:h-[30rem] tablet:w-[365px] tablet:h-[400px] w-[360px] h-[400px] rounded-lg"
+            className={`essa shadow-xl sm:w-[450px] sm:h-[30rem] tablet:w-[365px] tablet:h-[400px] w-[360px] h-[400px] rounded-lg ${
+              isDarkMode ? "bg-custom-color text-white" : "bg-white"
+            }`}
           >
             {" "}
             <img

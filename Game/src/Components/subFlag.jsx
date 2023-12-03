@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const SubFlag = ({ clickedLink }) => {
+const SubFlag = ({ clickedLink, isDarkMode }) => {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState(clickedLink);
   const [borderNames, setBorderNames] = useState([]);
@@ -109,7 +109,9 @@ const SubFlag = ({ clickedLink }) => {
                 <span className="font-semibold">Border Countries: </span>
                 {borderNames.map((borderName, index) => (
                   <button
-                    className="p-2 m-2 min-w-[100px] rounded-md shadow-xl bg-white"
+                    className={`p-2 m-3 min-w-[100px] rounded-md shadow-xl text-xl font-extralight ${
+                      isDarkMode ? "bg-custom-color text-white" : "bg-white"
+                    }`}
                     key={index}
                     onClick={() => setSearchTerm(borderName)}
                   >

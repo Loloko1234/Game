@@ -8,20 +8,31 @@ import Main from "./pages/Main/main";
 
 function App() {
   const [clickedLink, setClickedLink] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   return (
-    <>
+    <div>
       <Router>
-        <Nav />
+        <Nav isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Routes>
-          <Route path="/" element={<Main setClickedLink={setClickedLink} />} />
+          <Route
+            path="/"
+            element={
+              <Main setClickedLink={setClickedLink} isDarkMode={isDarkMode} />
+            }
+          />
           <Route
             path="/main"
-            element={<Main setClickedLink={setClickedLink} />}
+            element={
+              <Main setClickedLink={setClickedLink} isDarkMode={isDarkMode} />
+            }
           />
-          <Route path="/sub" element={<Sub clickedLink={clickedLink} />} />
+          <Route
+            path="/sub"
+            element={<Sub clickedLink={clickedLink} isDarkMode={isDarkMode} />}
+          />
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 

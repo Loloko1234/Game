@@ -2,7 +2,7 @@ import { useState } from "react";
 import SearchBar from "../../Components/SearchBar";
 import Filter from "../../Components/filter";
 
-function Main({ setClickedLink }) {
+function Main({ setClickedLink, isDarkMode }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchTermChange = (event) => {
@@ -10,10 +10,21 @@ function Main({ setClickedLink }) {
   };
 
   return (
-    <>
-      <SearchBar handleSearchTermChange={handleSearchTermChange} />
-      <Filter textSearch={searchTerm} setClickedLink={setClickedLink} />{" "}
-    </>
+    <div
+      className={`${
+        isDarkMode ? "bg-custom-color2 text-white" : "bg-custom-color3"
+      }`}
+    >
+      <SearchBar
+        handleSearchTermChange={handleSearchTermChange}
+        isDarkMode={isDarkMode}
+      />
+      <Filter
+        textSearch={searchTerm}
+        setClickedLink={setClickedLink}
+        isDarkMode={isDarkMode}
+      />{" "}
+    </div>
   );
 }
 
