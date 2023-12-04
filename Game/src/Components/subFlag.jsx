@@ -55,61 +55,61 @@ const SubFlag = ({ clickedLink, isDarkMode }) => {
         const firstCurrencyKey = Object.keys(country.currencies)[0];
 
         return (
-          <div key={index} className="flex mt-20 text-2xl">
-            <div className="pierwszydiv">
+          <div key={index} className="lg:flex mt-20  lg:text-xl text-4xl ">
+            <div className="pierwszydiv lg:flex ">
               <img
                 src={country.flags.png}
                 alt={country.name.common}
-                className="ml-20 w-[700px] h-[400px] rounded-lg shadow-xl"
+                className="ml-20 lg:min-w-0 min-w-[940px] h-[500px] mr-20 lg:w-[700px] lg:h-[400px] rounded-lg shadow-xl"
               />
             </div>
-            <div className="w-[1100px] flex flex-wrap">
-              <div className="drugidiv ml-20 w-max h-72">
-                <h1 className="font-bold text-4xl mb-2">
+            <div className="w-[1100px] flex lg:flex-wrap flex-col lg:flex-row lg:mt-8 mt-20">
+              <div className="drugidiv ml-20 lg:ml-5 2xl:ml-20 w-max h-72">
+                <h1 className="font-bold lg:text-4xl text-6xl mb-2">
                   {country.name.common}
                 </h1>
-                <p className="mt-6">
+                <p className=" mt-20 lg:mt-6">
                   <span className="font-semibold">Native Name: </span>
                   {country.name.nativeName[firstLanguageKey].common}
                 </p>
-                <p className="mt-3">
+                <p className=" mt-6 lg:mt-3">
                   <span className="font-semibold">Population: </span>
                   {country.population.toLocaleString("es-ES")}
                 </p>
-                <p className="mt-3">
+                <p className=" mt-6 lg:mt-3">
                   <span className="font-semibold">Region: </span>
                   {country.region}
                 </p>
-                <p className="mt-3">
+                <p className=" mt-6 lg:mt-3">
                   <span className="font-semibold">Sub Region: </span>
                   {country.subregion}
                 </p>
-                <p className="mt-3">
+                <p className=" mt-6 lg:mt-3">
                   <span className="font-semibold">Capital: </span>
                   {country.capital}
                 </p>
               </div>
-              <div className="trzecidiv mt-[3.25rem] h-40 w-auto ml-32">
-                <p className="mt-3">
+              <div className="trzecidiv mt-56 lg:mt-[3.25rem] h-40 w-[1000px] lg:w-[220px] ml-20 lg:ml-20 2xl:ml-36">
+                <p className=" mt-6 lg:mt-3">
                   <span className="font-semibold">Top Level Domain: </span>
                   {country.tld}
                 </p>
-                <p className="mt-3">
+                <p className=" mt-6 lg:mt-3">
                   <span className="font-semibold">Currencies: </span>
                   {country.currencies[firstCurrencyKey].name}
                 </p>
-                <p className="mt-3">
+                <p className=" mt-6 lg:mt-3">
                   <span className="font-semibold">Languages: </span>
                   {Object.entries(country.languages).map(([key, value]) => (
                     <span key={key}>{value},</span>
                   ))}
                 </p>
               </div>
-              <div className="czwartdiv mt-8 h-20 ml-20 lg:mr-20 mr-8">
+              <div className="czwartdiv lg:mt-0 2xl:mt-4 ml-20 lg:ml-5 2xl:ml-20 h-20 mt-32 lg:mr-20 mr-8">
                 <span className="font-semibold">Border Countries: </span>
                 {borderNames.map((borderName, index) => (
                   <button
-                    className={`p-2 m-3 min-w-[100px] rounded-md shadow-xl text-xl font-extralight ${
+                    className={`p-2 m-3 min-w-[200px] lg:min-w-[130px]  rounded-md shadow-xl lg:text-base text-3xl font-extralight flex-wrap flex-row ${
                       isDarkMode ? "bg-custom-color text-white" : "bg-white"
                     }`}
                     key={index}

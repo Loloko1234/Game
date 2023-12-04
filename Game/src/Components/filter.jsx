@@ -18,13 +18,17 @@ const Filter = ({ textSearch, setClickedLink, isDarkMode }) => {
   );
   useEffect(() => {
     setSelectedFilter("Filter by region");
+  }, []);
+  useEffect(() => {
     setSearchTerm(textSearch);
-
+    console.log(selectedFilter);
     const fetchData = async () => {
       try {
         let url;
         if (textSearch !== "") {
           url = `https://restcountries.com/v3.1/name/${textSearch}`;
+        } else if (initialFilterOptions.includes(selectedFilter)) {
+          url = `https://restcountries.com/v3.1/region/${selectedFilter}`;
         } else {
           url = "https://restcountries.com/v3.1/all";
         }
@@ -35,14 +39,12 @@ const Filter = ({ textSearch, setClickedLink, isDarkMode }) => {
         }
 
         const data = await response.json();
-        setCountries(data.slice(0, 8));
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+        setCountries(data);
+      } catch (error) {}
     };
 
     fetchData();
-  }, [textSearch]);
+  }, [textSearch, selectedFilter]);
   return (
     <div
       className={`${
@@ -50,7 +52,7 @@ const Filter = ({ textSearch, setClickedLink, isDarkMode }) => {
       }`}
     >
       <select
-        className={`w-1/2 h-16 rounded-md text-xl px-6 shadow-lg ml-8 mt-8 appearance-none focus:outline-none lg:w-1/6 lg:ml-20 lg:mt-9 lg:mb-6 ${
+        className={`w-1/2 h-16 rounded-md text-xl px-6 shadow-lg ml-8 mt-8 appearance-none focus:outline-none lg:w-1/6 lg:ml-20 lg:mt-9 lg:mb-6 cursor-pointer  ${
           isDarkMode ? "bg-custom-color text-white" : "bg-white"
         }`}
         value={selectedFilter}
