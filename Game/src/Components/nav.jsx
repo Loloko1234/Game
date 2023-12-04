@@ -19,11 +19,11 @@ const Nav = ({ isDarkMode, setIsDarkMode }) => {
         isDarkMode ? "bg-custom-color text-white" : "bg-white"
       }`}
     >
-      <h1 className="text-4xl lg:text-2xl font-bold lg:ml-20 ml-8">
+      <h1 className="text-xl lg:text-2xl font-bold lg:ml-20 ml-8">
         Where in the world?
       </h1>
       <button
-        className="lg:mr-20 text-2xl lg:text-xl font-medium mr-8"
+        className="lg:mr-20 text-base lg:text-xl font-medium mr-8"
         onClick={handleDarkModeToggle}
       >
         Dark Mode
