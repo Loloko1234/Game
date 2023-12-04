@@ -55,7 +55,10 @@ const SubFlag = ({ clickedLink, isDarkMode }) => {
         const firstCurrencyKey = Object.keys(country.currencies)[0];
 
         return (
-          <div key={index} className="lg:flex mt-10  lg:text-xl text-base ">
+          <div
+            key={index}
+            className="lg:flex mt-10 lg:mt-20 lg:text-xl text-base w-auto"
+          >
             <div className="pierwszydiv lg:flex ">
               <img
                 src={country.flags.png}
@@ -63,7 +66,7 @@ const SubFlag = ({ clickedLink, isDarkMode }) => {
                 className="ml-11 lg:min-w-0 min-w-auto h-auto first-letter:lg:w-[700px] lg:h-[400px] rounded-lg shadow-xl"
               />
             </div>
-            <div className="w-auto flex lg:flex-wrap flex-col lg:flex-row lg:mt-8 mt-10">
+            <div className="w-[900px] flex lg:flex-wrap flex-col lg:flex-row lg:mt-8 mt-10">
               <div className="drugidiv ml-11 lg:ml-5 2xl:ml-20 lg:w-max h-72">
                 <h1 className="font-bold lg:text-4xl text-2xl mb-2">
                   {country.name.common}
@@ -89,7 +92,7 @@ const SubFlag = ({ clickedLink, isDarkMode }) => {
                   {country.capital}
                 </p>
               </div>
-              <div className="trzecidiv lg:mt-[3.25rem] h-40 lg:w-[220px] ml-11 lg:ml-20 2xl:ml-36">
+              <div className="trzecidiv h-40 lg:w-[420px] ml-11 xl:12 2xl:ml-20 laptop:ml-5 lg:mt-2 xl:mt-11">
                 <p className=" mt-4 lg:mt-3">
                   <span className="font-semibold">Top Level Domain: </span>
                   {country.tld}
@@ -101,7 +104,7 @@ const SubFlag = ({ clickedLink, isDarkMode }) => {
                 <p className=" mt-4 lg:mt-3">
                   <span className="font-semibold">Languages: </span>
                   {Object.entries(country.languages).map(([key, value]) => (
-                    <span key={key}>{value},</span>
+                    <span key={key}>{value}, </span>
                   ))}
                 </p>
               </div>
