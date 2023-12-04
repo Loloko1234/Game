@@ -108,11 +108,11 @@ const SubFlag = ({ clickedLink, isDarkMode }) => {
                   ))}
                 </p>
               </div>
-              <div className="czwartdiv lg:mt-0 2xl:mt-4 ml-11 lg:ml-5 2xl:ml-20 h-20 lg:mr-20 mr-8">
+              <div className="czwartdiv lg:mt-0 2xl:mt-4 ml-11 lg:ml-5 2xl:ml-20 h-20 lg:mr-20 mr-8 lg:w-auto w-[300px]">
                 <span className="font-semibold">Border Countries: </span>
                 {borderNames.map((borderName, index) => (
                   <button
-                    className={`p-2 m-1 min-w-[50px] lg:min-w-[130px]  rounded-md shadow-xl lg:text-base text-base font-extralight flex-wrap flex-row ${
+                    className={`p-2 m-1 min-w-[50px] lg:min-w-[130px]  rounded-md shadow-xl lg:text-base text-base font-extralight flex-wrap flex-row w-auto flex${
                       isDarkMode ? "bg-custom-color text-white" : "bg-white"
                     }`}
                     key={index}
